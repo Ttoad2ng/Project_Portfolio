@@ -1,0 +1,124 @@
+wafer_id,fault_name,is_fault,first_detect_progress,lead_time_pct,detected_at_pct,detected
+2901,calibration,False,40.0,60.0,40.0,True
+2903,calibration,False,,,,False
+2904,calibration,False,,,,False
+2905,calibration,False,,,,False
+2906,calibration,False,,,,False
+2907,calibration,False,,,,False
+2908,calibration,False,,,,False
+2909,calibration,False,,,,False
+2910,calibration,False,,,,False
+2911,calibration,False,,,,False
+2912,calibration,False,,,,False
+2913,calibration,False,,,,False
+2914,calibration,False,,,,False
+2915,TCP +50 ,True,10.0,90.0,10.0,True
+2917,RF +10  ,True,10.0,90.0,10.0,True
+2918,Pr +3   ,True,10.0,90.0,10.0,True
+2920,calibration,False,,,,False
+2921,calibration,False,,,,False
+2922,calibration,False,,,,False
+2923,calibration,False,,,,False
+2924,calibration,False,,,,False
+2925,calibration,False,,,,False
+2926,calibration,False,,,,False
+2927,calibration,False,,,,False
+2928,calibration,False,100.0,0.0,100.0,True
+2929,calibration,False,,,,False
+2930,calibration,False,,,,False
+2931,calibration,False,,,,False
+2932,calibration,False,,,,False
+2933,calibration,False,,,,False
+2934,calibration,False,,,,False
+2935,calibration,False,100.0,0.0,100.0,True
+2936,TCP +10 ,True,80.0,19.999999999999996,80.0,True
+2937,BCl3 +5 ,True,20.0,80.0,20.0,True
+2938,Pr -2   ,True,10.0,90.0,10.0,True
+2939,Cl2 -5  ,True,30.000000000000004,70.0,30.000000000000004,True
+2940,He Chuck,True,80.0,19.999999999999996,80.0,True
+2941,calibration,False,,,,False
+2942,calibration,False,,,,False
+2943,calibration,False,,,,False
+3101,calibration,False,,,,False
+3102,calibration,False,,,,False
+3103,calibration,False,,,,False
+3104,calibration,False,,,,False
+3105,calibration,False,,,,False
+3106,calibration,False,,,,False
+3107,calibration,False,,,,False
+3108,calibration,False,,,,False
+3109,calibration,False,,,,False
+3110,calibration,False,,,,False
+3111,calibration,False,,,,False
+3112,calibration,False,,,,False
+3113,calibration,False,,,,False
+3114,calibration,False,,,,False
+3115,calibration,False,,,,False
+3116,calibration,False,,,,False
+3117,calibration,False,,,,False
+3118,calibration,False,,,,False
+3119,calibration,False,,,,False
+3120,TCP +30 ,True,10.0,90.0,10.0,True
+3121,Cl2 +5  ,True,70.0,29.999999999999993,70.0,True
+3122,RF +8   ,True,10.0,90.0,10.0,True
+3123,calibration,False,,,,False
+3124,calibration,False,,,,False
+3126,calibration,False,,,,False
+3127,calibration,False,,,,False
+3128,calibration,False,,,,False
+3129,calibration,False,,,,False
+3130,calibration,False,,,,False
+3131,calibration,False,,,,False
+3132,calibration,False,,,,False
+3133,calibration,False,,,,False
+3134,calibration,False,,,,False
+3135,calibration,False,,,,False
+3136,calibration,False,,,,False
+3137,calibration,False,,,,False
+3138,calibration,False,,,,False
+3139,calibration,False,,,,False
+3140,calibration,False,,,,False
+3141,BCl3 -5 ,True,10.0,90.0,10.0,True
+3142,Pr +2   ,True,10.0,90.0,10.0,True
+3143,TCP -20 ,True,10.0,90.0,10.0,True
+3301,calibration,False,,,,False
+3302,calibration,False,,,,False
+3303,calibration,False,30.000000000000004,70.0,30.000000000000004,True
+3304,calibration,False,,,,False
+3305,calibration,False,,,,False
+3307,calibration,False,,,,False
+3308,calibration,False,,,,False
+3309,calibration,False,,,,False
+3310,calibration,False,,,,False
+3311,calibration,False,,,,False
+3312,calibration,False,,,,False
+3313,calibration,False,,,,False
+3314,calibration,False,,,,False
+3315,calibration,False,,,,False
+3316,calibration,False,,,,False
+3317,calibration,False,,,,False
+3318,TCP -15 ,True,10.0,90.0,10.0,True
+3319,Cl2 -10 ,True,20.0,80.0,20.0,True
+3320,RF -12  ,True,10.0,90.0,10.0,True
+3321,calibration,False,10.0,90.0,10.0,True
+3322,calibration,False,,,,False
+3323,calibration,False,,,,False
+3324,calibration,False,80.0,19.999999999999996,80.0,True
+3326,calibration,False,,,,False
+3327,calibration,False,,,,False
+3328,calibration,False,,,,False
+3329,calibration,False,,,,False
+3330,calibration,False,,,,False
+3331,calibration,False,,,,False
+3332,calibration,False,,,,False
+3333,calibration,False,,,,False
+3334,calibration,False,,,,False
+3335,calibration,False,,,,False
+3336,calibration,False,,,,False
+3337,calibration,False,,,,False
+3338,calibration,False,,,,False
+3339,BCl3 +10,True,10.0,90.0,10.0,True
+3340,Pr +1   ,True,10.0,90.0,10.0,True
+3341,TCP +20 ,True,10.0,90.0,10.0,True
+3342,calibration,False,,,,False
+3343,calibration,False,10.0,90.0,10.0,True
