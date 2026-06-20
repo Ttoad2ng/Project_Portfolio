@@ -76,6 +76,10 @@
 
 > 🔗 [GitHub Repository]( )  <!-- 링크 추가 예정 -->
 
+
+> 🔗 [금속 에칭 공정 FDC 시스템 대시보드 바로가기](https://fdc-monitoring-dashboard-pprv4chs5yrhooo2dpm3oy.streamlit.app/)
+
+
 ---
 
 ### Run
@@ -84,6 +88,4 @@
 streamlit run FDC_dashboard.py
 
 ```
-
-> 🔗 [금속 에칭 공정 FDC 시스템 대시보드 바로가기](https://fdc-monitoring-dashboard-pprv4chs5yrhooo2dpm3oy.streamlit.app/)
 
