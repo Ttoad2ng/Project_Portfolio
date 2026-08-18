@@ -53,6 +53,22 @@ FDC Contribution 분석으로 이상 원인 센서 계열을 식별한다.
 
 ---
 
+### Project 04 — 사출 공정 품질 예측 및 모니터링 대시보드
+
+> Injection Process Quality Prediction & Monitoring Dashboard
+
+사출 생산 이벤트와 공정 이력을 Shot 단위로 구성하고, 시간 기반 검증을 통해 품질 위험 예측 모델을 비교한다.
+과거 품질상태 기반 모델링과 공정조건 기반 기준모델을 구분해 평가하고,
+Shot 흐름·예측 불량 확률·공정조건·설비 이력을 확인하는 Streamlit 모니터링 대시보드를 구현한다.
+
+**Key Stack** `Python` · `Scikit-learn` · `Histogram Gradient Boosting` · `Ridge` · `Streamlit` · `Plotly` · `Pytest`
+
+> 🔗 [사출 공정 품질 예측 및 모니터링 프로젝트 바로가기](04_injection_process_quality_prediction)
+
+> 🔒 원본 제조 데이터, 내부 공정 규격, 모델 파일 및 운영 코드는 보안상 공개하지 않습니다.
+
+---
+
 ## Skills Overview
 
 | 영역 | 주요 기술 |
@@ -60,9 +76,9 @@ FDC Contribution 분석으로 이상 원인 센서 계열을 식별한다.
 | 데이터 처리 | Pandas, NumPy, KNNImputer, SMOTE |
 | 통계 분석 | t-test, Mann-Whitney U, Shapiro-Wilk, Q-Q Plot, VIF |
 | 시각화 | Matplotlib, Seaborn, Plotly, 가우시안 블러 히트맵, 극좌표계 시각화 |
-| 머신러닝 | LightGBM, XGBoost, Random Forest, Scikit-learn, SHAP |
+| 머신러닝 | LightGBM, XGBoost, Random Forest, Histogram Gradient Boosting, Ridge, Scikit-learn, SHAP |
 | 이상 탐지 | MPCA (Q statistic), 스트리밍 감지, FDC Contribution 분석 |
-| 대시보드 | Streamlit, 다중 페이지 설계, 세션 상태 관리, 커스텀 CSS |
+| 대시보드 | Streamlit, Plotly, 다중 페이지 설계, 세션 상태 관리, historical replay, 커스텀 CSS |
 
 ---
 

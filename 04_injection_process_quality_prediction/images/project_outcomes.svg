@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="360" viewBox="0 0 1100 360">
+  <rect width="1100" height="360" rx="24" fill="#f6f8fb"/>
+  <text x="550" y="48" text-anchor="middle" fill="#162b4d" font-family="Arial, sans-serif" font-size="26" font-weight="700">Project Outcomes</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g transform="translate(55 90)"><rect width="300" height="205" rx="20" fill="#ffffff" stroke="#1f6feb" stroke-width="3"/><text x="150" y="50" fill="#5e7290" font-size="17">Development comparison</text><text x="150" y="112" fill="#163b7a" font-size="48" font-weight="700">0.7854</text><text x="150" y="148" fill="#253955" font-size="18" font-weight="700">ROC-AUC</text><text x="150" y="180" fill="#71839c" font-size="14">historical quality-state HGB</text></g>
+    <g transform="translate(400 90)"><rect width="300" height="205" rx="20" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/><text x="150" y="50" fill="#5e7290" font-size="17">Validation design</text><text x="150" y="108" fill="#b76b00" font-size="34" font-weight="700">Temporal</text><text x="150" y="146" fill="#253955" font-size="18" font-weight="700">leakage-safe comparison</text><text x="150" y="180" fill="#71839c" font-size="14">train-only preprocessing</text></g>
+    <g transform="translate(745 90)"><rect width="300" height="205" rx="20" fill="#ffffff" stroke="#10b981" stroke-width="3"/><text x="150" y="50" fill="#5e7290" font-size="17">Dashboard delivery</text><text x="150" y="108" fill="#087f5b" font-size="34" font-weight="700">Interactive</text><text x="150" y="146" fill="#253955" font-size="18" font-weight="700">Shot and process monitoring</text><text x="150" y="180" fill="#71839c" font-size="14">replay · filters · trend analysis</text></g>
+  </g>
+  <text x="550" y="330" text-anchor="middle" fill="#71839c" font-family="Arial, sans-serif" font-size="15">Development evidence only; production readiness and causal effects are not claimed.</text>
+</svg>
