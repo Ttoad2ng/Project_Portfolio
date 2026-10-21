@@ -1,71 +1,59 @@
+# Project 02. 반도체 패키징 공정 불량 분석 및 예측
 
-<h2># Project 02 — 반도체 패키징 공정 불량 분석 및 예측</h2>
+[전체 포트폴리오](../README.md)
 
-> **Semiconductor Back-end-of-Line (BOL) Process Defect Analysis & ML Prediction**
+5단계 패키징 공정의 센서 데이터를 통계 검정과 분류 모델로 연결해 불량 후보 변수와 점검 우선순위를 도출했습니다.
 
----
+| 샘플 | 센서 변수 | 불량 비율 | 선별 후보 |
+|---|---|---|---|
+| 16,998개 | 5단계 × 8개 = 40개 | 20.2% | 14개 |
 
-### Background
+## 문제와 변수 선별
 
-반도체 패키징(BOL) 공정은 5개의 Stage로 구성되며, 각 Stage의 공정 변수가 최종 불량 여부에 복합적으로 영향을 미친다.  
-본 프로젝트는 통계 분석을 통해 정상/불량 그룹 간 의미 있는 차이를 보이는 변수를 선별하고,  
-머신러닝 모델을 통해 불량을 사전에 예측하는 파이프라인을 구축한다.
+불균형 데이터에서 통계적 유의성과 실질적인 불량률 차이를 함께 확인했습니다.
 
-<p align="center">
-  <img src="./images/모델 성능.png">
-</p>
----
+| 검토 기준 | 방법 |
+|---|---|
+| 정상·불량 그룹의 분포 차이 | 정규성에 따라 Welch t-test 또는 Mann–Whitney U-test 적용, 효과크기 확인 |
+| 센서 구간과 불량 여부의 관련성 | 카이제곱 검정 |
+| 실질적인 차이 | 구간별 불량률 차이 10% 초과 여부와 표본 수 검토 |
 
-### Summary
+## 모델링과 평가
 
-- **(1) Data Information**
-  - `features_train.csv`: **16,998개 샘플**, **40개 피처** (5-Stage 공정 변수 — 온도, 유량, 압력 등)
-  - `labels_train.csv`: 정상(0) / 불량(1) 레이블
-  - 5개 공정 Stage별 주요 변수로 구성 (각 Stage당 복수의 공정 파라미터)
+LightGBM·XGBoost·Random Forest를 비교하고 Stratified K-fold와 전처리 파이프라인을 적용했습니다.
+학습 데이터에만 SMOTE를 적용해 클래스 불균형을 처리했습니다.
 
-- **(2) Data Preprocessing**
-  - EDA: 30% 이상 결측 피처 제거, 나머지는 Median 대체
-  - 공정 Stage별로 중요 피처 선정
-  - Q-Q Plot + Shapiro-Wilk 검정으로 정규성 확인
-  - 결측 처리 후 VIF 확인 및 다중공선성 제거
+**LightGBM Test 결과, 임계값 0.5**
 
-- **(3) Statistical Analysis**
-  - **Welch t-test**: 정규 분포 변수에서 정상/불량 그룹 간 평균 차이 검증
-  - **Mann-Whitney U test**: 비정규 분포 변수에서 그룹 간 중위수 차이 검증
-  - 통계적으로 유의한 변수만 모델 학습에 투입
-  - 통합 공정 기반으로 불량을 예측하고 업스트림 공정 기여 원인 탐색
+| ROC-AUC | Recall | Precision | F1-score | Accuracy |
+|---|---|---|---|---|
+| **0.962** | **0.847** | **0.817** | **0.832** | **0.931** |
 
-- **(4) Machine Learning**
-  - Train/Test Split → KNNImputer → StandardScaler → PCA (선택적)
-  - SMOTE (학습 데이터에만 적용): 클래스 불균형 처리
-  - 모델 비교: `LightGBM` / `XGBoost` / `Random Forest`
-  - Threshold 최적화 (Recall 기준)
-  - Stratified K-Fold 교차 검증
-  - Feature Importance + SHAP 분석
+포트폴리오에 기록된 F1 기준 선택 임계값은 0.5입니다.
 
-- **(5) Key Findings**
-  - 공정 Stage별 주요 변수(온도, 유량, 압력 계열)에서 정상/불량 그룹 간 통계적으로 유의한 차이 확인
-  - 통계적으로 유의한 변수만 사용했을 때 ML 모델의 Recall 성능 향상
-  - SHAP 분석을 통해 특정 공정 Stage의 온도/압력 변수가 불량 예측에 가장 크게 기여함을 확인
+![모델 성능 비교](images/모델%20성능.png)
 
-- **(6) Retrospective**
-  - 통계 분석과 ML 모델링을 순차적으로 연결한 체계적인 파이프라인 구성
-  - 결측 처리 전략(30% 기준 제거 + Median 대체)의 타당성을 추가로 검증할 여지가 있음
-  - SHAP 인사이트를 공정 개선 방향으로 연결하는 후속 작업 필요
+## 공정 모니터링 우선순위
 
----
+| 순위 | 점검 대상 |
+|---|---|
+| 1 | Stage 2 점도 편차 |
+| 2 | Stage 1 점도·CO₂ 편차 |
+| 3 | Stage 4 밀도·유량 편차 |
+| 4 | Stage 3 O₂·N₂ 편차 |
 
-### Stack
+변수 중요도와 SHAP 해석을 센서 점검 순서와 추가 실험 대상 선정에 활용했습니다.
+중요도는 모델 판단에 기여한 신호이며, 불량의 인과적 원인을 확정하지 않습니다.
 
-`Python` · `Pandas` · `Scikit-learn` · `LightGBM` · `XGBoost` · `SHAP` · `SMOTE (imbalanced-learn)` · `SciPy`
+## 본인 기여
 
----
+센서 EDA, 통계 검정, 모델링 실험·성능 비교, 결과 해석을 수행했습니다.
 
-### Files
+## 기술
 
-| 파일 | 설명 |
-|------|------|
-| `소스코드(...).ipynb` | 통계 분석 + ML 모델링 전체 코드 |
-| `반도체패키징(...).pdf` | 최종 결과 보고서 |
+Python · Pandas · SciPy · Scikit-learn · LightGBM · XGBoost · Random Forest · SHAP · imbalanced-learn
 
----
+## 분석 자료
+
+- [분석 보고서](%EB%B0%98%EB%8F%84%EC%B2%B4%ED%8C%A8%ED%82%A4%EC%A7%95%EA%B3%B5%EC%A0%95%EB%B6%88%EB%9F%89%EB%B6%84%EC%84%9D%EB%B0%8F%EC%98%88%EC%B8%A1.pdf)
+- [전체 분석 노트북](%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C%28%EB%B0%98%EB%8F%84%EC%B2%B4%ED%8C%A8%ED%82%A4%EC%A7%95%EA%B3%B5%EC%A0%95%EB%B6%88%EB%9F%89%EB%B6%84%EC%84%9D%EB%B0%8F%EC%98%88%EC%B8%A1%29.ipynb)
